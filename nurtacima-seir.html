@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nurtacıma Şeir</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent: #f7768e; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(6px);
+      z-index: 10;
+      padding: 24px;
+    }
+    h1 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .yes {
+      background: linear-gradient(45deg, #ff758c, #ff7eb3);
+      color: white;
+    }
+    .no {
+      background: white;
+      color: #ff758c;
+    }
+    .main {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 24px;
+    }
+    .main.show { opacity: 1; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .gallery img {
+      width: 100%;
+      height: 320px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+      cursor: pointer;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.36);
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 20;
+    }
+    .lightbox.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+    }
+    .typing-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+      padding: 8px 18px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    .typing-text {
+      font-family: 'Fira Code', monospace;
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: center;
+    }
+    .cursor {
+      width: 4px;
+      height: 34px;
+      background: var(--accent);
+      display: inline-block;
+      margin-left: 8px;
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .poem {
+      margin-top: 20px;
+      color: white;
+      max-width: 700px;
+      font-size: 16px;
+      line-height: 1.7;
+      white-space: pre-line;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      .typing-text { font-size: 20px; }
+      .gallery img { height: 250px; }
+      .buttons { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+<div class="overlay" id="overlay">
+  <h1>Ziyanı sevirsən?</h1>
+  <div class="buttons">
+    <button class="btn no" id="noBtn">Yox</button>
+    <button class="btn yes" id="yesBtn">Bəli</button>
+  </div>
+</div>
+
+<div class="main" id="main">
+  <h1>Nurtacım ❤️</h1>
+  <div class="typing-badge">
+    <div style="font-size:20px;">♡</div>
+    <div class="typing-text" id="typingText"></div>
+    <div class="cursor"></div>
+  </div>
+  <div class="gallery">
+    <img src="assets/poem-boy.jpg" alt="Ziya">
+    <img src="assets/poem-girl.jpg" alt="Nurtacım">
+  </div>
+  <div class="poem">
+Xəyalın yanımda, sən uzaqdasan,
+Hicranın yolları ömür qədərdir.
+Bu yalqız axşamda yuvama baxsan,
+Mənəm, xəyalındır, bir də kədərdir.
+
+Gəl ört pəncərəni, qalaq üz-üzə
+Bir sən ol, bir də mən, bir də gözlərin
+Vüsal qərq olurkən hicran dənizə,
+Ağ bir yelkən olsun o son sözlərin.
+
+Bir sən ol, bir də mən, bir də dərdimiz
+Ağlayaq doyunca gülək doyunca,
+Baş-başa qaldıqca bu möhnətdə biz,
+Döysün qapıları külək doyunca
+
+Döysün, qoy açmayaq yorulsun külək,
+Qəmli hicran qalsın qapıda dustaq.
+Bir az vüsalınla çırpınsın ürək,
+Sonra... Sonra yenə biz ayrılmayaq...
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Böyük şəkil">
+</div>
+
+<script>
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.style.position = 'fixed';
+    heart.style.fontSize = `${Math.random() * 20 + 20}px`;
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.top = '-30px';
+    heart.style.opacity = 0.8;
+    heart.style.pointerEvents = 'none';
+    heart.style.animation = 'fall 4s linear forwards';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }
+
+  setInterval(createHeart, 400);
+
+  const style = document.createElement('style');
+  style.innerHTML = '@keyframes fall { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(100vh); opacity: 0; } }';
+  document.head.appendChild(style);
+
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const overlay = document.getElementById('overlay');
+  const main = document.getElementById('main');
+  const typingText = document.getElementById('typingText');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('show');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+  });
+
+  let scale = 1;
+  noBtn.addEventListener('click', () => {
+    scale += 0.18;
+    if (scale > 3.6) scale = 3.6;
+    yesBtn.style.transform = `scale(${scale})`;
+  });
+
+  yesBtn.addEventListener('click', () => {
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      main.classList.add('show');
+      startTypingLoop();
+    }, 420);
+  });
+
+  function startTypingLoop() {
+    const phrases = ['Səni çox ama çox sevirəm'];
+    const typeSpeed = 45;
+    const pauseAfter = 1200;
+    let pIndex = 0;
+
+    async function run() {
+      const text = phrases[pIndex];
+      for (let i = 1; i <= text.length; i++) {
+        typingText.textContent = text.substring(0, i);
+        await wait(typeSpeed);
+      }
+      await wait(pauseAfter);
+      for (let i = text.length; i >= 0; i--) {
+        typingText.textContent = text.substring(0, i);
+        await wait(26);
+      }
+      await wait(400);
+      pIndex = (pIndex + 1) % phrases.length;
+      run();
+    }
+
+    run();
+  }
+
+  function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+</script>
+</body>
+</html>

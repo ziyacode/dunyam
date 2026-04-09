@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="gfRFjiaDTYd0covypvcJDW_EvOEZDEDH5nMOEZt0WR4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziya və Nurtacımın Dünyası</title>
+    <meta name="description" content="Ziya və Nurtacımın özəl dünyası. Birlikdə keçən zamanımız, xatirələrimiz və sevgimiz...">
+    <meta name="keywords" content="Ziya və Nurtacım, Ziya Nurtacım, Bizim Dünyamız, sevgi saytı">
+    <meta property="og:title" content="Ziya və Nurtacımın Dünyası ❤️">
+    <meta property="og:description" content="Bizim kiçik, gizli və sevgi dolu dünyamız. Giriş yalnız icazə ilədir... ✨">
+    <meta property="og:image" content="https://www.dunyamiz.me/assets/192.png"> 
+    <meta property="og:url" content="https://www.dunyamiz.me">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ziya və Nurtacımın Dünyası">
+    <meta name="twitter:description" content="Bizim dünyamıza xoş gəldin.">
+    <meta name="twitter:image" content="https://www.dunyamiz.me/assets/192.png">
+    <link rel="stylesheet" href="hcstil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Dünyamız">
+    <link rel="apple-touch-icon" href="assets/192.png">
+    <meta name="theme-color" content="#ff4d6d">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <div class="rose-wrapper">
+                <div class="rose-flower">
+                    <div class="flower-pot">
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                        <div class="petal"></div>
+                    </div>
+                    <div class="leaf">
+                        <div class="stem"></div>
+                        <div class="leafs"></div>
+                        <div class="leafs"></div>
+                    </div>
+                </div>
+            </div>
+            <h1>Xoş Gəldin, Nurtacım</h1>
+            <button id="enter-btn">Toxun <i class="fas fa-heart"></i></button>
+            <div id="password-panel" class="hidden" style="margin-top: 20px; display: none; flex-direction: column; align-items: center; gap: 15px;">
+            <input type="password" id="pass-input" placeholder="Şifrəni yaz" 
+                   style="padding: 15px; border-radius: 50px; border: 1px solid var(--primary); background: rgba(255,255,255,0.1); color: white; text-align: center; outline: none; width: 200px;">
+            <p id="error-msg" style="color: #ff4d6d; font-size: 0.8rem; display: none;">Kül başına düz yaz!</p>
+            <button id="verify-btn" style="padding: 10px 30px; background: var(--primary); border: none; color: white; border-radius: 50px; cursor: pointer;">Təsdiqlə</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden">
+        <!-- Header - Always Visible -->
+        <header class="animate-item delay-1">
+            <div class="logo-container">
+                <span class="letter">Z</span>
+                <div class="infinity-wrapper">
+                    <svg viewBox="0 0 100 50" class="infinity-svg">
+                        <path d="M20,25 C20,9 46,9 50,25 C54,41 80,41 80,25 C80,9 54,9 50,25 C46,41 20,41 20,25" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="letter">N</span>
+            </div>
+            <div class="greeting-box">
+                <h2 id="dynamic-greeting"></h2>
+                <p id="live-clock"></p>
+            </div>
+            <div id="weather-container" style="text-align: center; padding: 15px; font-family: sans-serif; transition: all 1s ease;">
+                <span id="weather-status" style="color: #aaa; font-size: 14px; letter-spacing: 1px;">Bakıda hava yoxlanılır...</span>
+            </div>
+        </header>
+
+        <!-- SPA Pages Container -->
+        <div class="spa-container">
+            
+            <!-- Page 1: Əsas (Home) -->
+            <section class="spa-page active" id="page-home">
+                <div class="page-content animate-item delay-2">
+                    <!-- Time Together Counter - Modern Card -->
+                    <div class="time-together-card">
+                        <div class="time-together-header">
+                            <i class="fas fa-heart"></i>
+                            <h2>Birlikdə Keçən Zaman</h2>
+                        </div>
+                        <div class="time-together-display">
+                            <div class="big-time">
+                                <span id="total-days">0</span>
+                                <label>Gün</label>
+                            </div>
+                            <div class="time-divider"></div>
+                            <div class="small-time-grid">
+                                <div class="small-time">
+                                    <span id="hours">00</span>
+                                    <label>Saat</label>
+                                </div>
+                                <div class="small-time">
+                                    <span id="minutes">00</span>
+                                    <label>Dəqiqə</label>
+                                </div>
+                                <div class="small-time">
+                                    <span id="seconds">00</span>
+                                    <label>Saniyə</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="meeting-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Görüş sayımız: <strong id="meet-count">0</strong></span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Danışmağa başladığımız gün: <strong>06.12.2025 15:10</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Meeting Timer -->
+                    <div class="counter-section meeting-timer">
+                        <h3>Növbəti Görüşümüzə Qalan Vaxt:</h3>
+                        <p id="next-meeting-date" class="meeting-date-text"></p> 
+                        <div class="timer-grid">
+                            <div class="time-box">
+                                <span id="meet-days">00</span>
+                                <label>Gün</label>
+                            </div>
+                            <div class="time-box">
+                                <span id="meet-hours">00</span>
+                                <label>Saat</label>
+                            </div>
+                            <div class="time-box">
+                                <span id="meet-minutes">00</span>
+                                <label>Dəqiqə</label>
+                            </div>
+                            <div class="time-box">
+                                <span id="meet-seconds">00</span>
+                                <label>Saniyə</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Love Power Section -->
+                    <section class="love-power-section animate-item delay-3">
+                        <div class="love-container">
+                            <p>Basıb saxla, 100% olanda Nurtacımın Gözəl Tərəfləri səhifəsinə keçəcək...</p>
+                            <div id="hold-heart" class="heart-trigger">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <span id="power-percent">0%</span>
+                            <small class="hold-heart-note">Bu ürək tam dolanda gizli gözəl səhifə açılır.</small>
+                        </div>
+                    </section>
+
+                    <!-- Scratch Card -->
+                    <div class="scratch-section">
+                        <p class="scratch-hint">Aşağıdakı qutunu sil</p>
+                        <div class="scratch-container">
+                            <div class="secret-message">
+                                <h3>Sən mənim hərşeyimsən 🤍</h3>
+                                <p>Hər zaman yanımda olduğun üçün təşəkkür edirəm.</p>
+                            </div>
+                            <canvas id="scratch-canvas" width="300" height="150"></canvas>
+                        </div>
+                    </div>
+
+                    <section class="peace-section animate-item delay-4">
+                        <div class="peace-card">
+                            <div class="peace-kicker">Barış düyməsi</div>
+                            <h3>Nə olursa olsun yenə sən</h3>
+                            <p>Bəzən çox sözə ehtiyac olmur. Tək bir toxunuş kifayətdir ki, ekran çiçəklənsin və hər şey bir az yumşalsın.</p>
+                            <button id="peace-button" class="peace-button" type="button" onclick="window.triggerPeaceMode && window.triggerPeaceMode()">
+                                <i class="fas fa-dove"></i> Barış Düyməsi
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="links-section" style="margin-top: 40px;">
+                        <h3>Nurtacım üçün xüsusi bölmələr</h3>
+                        <div class="quote-links">
+                            <a href="nurtacimin-gozel-terefleri.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacımın Gözəl Tərəfləri"</blockquote>
+                                <cite>Aç</cite>
+                            </a>
+                            <a href="nurtacima-seir.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacıma Şeir"</blockquote>
+                                <cite>Aç</cite>
+                            </a>
+                            <a href="nurtac-heart.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtac Heart"</blockquote>
+                                <cite>Aç</cite>
+                            </a>
+                            <a href="nurtacima-mektub.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacıma Məktub"</blockquote>
+                                <cite>Aç</cite>
+                            </a>
+                            <a href="nurtacima-etiraf.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacımın Səhvləri"</blockquote>
+                                <cite>Aç</cite>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <!-- Page 2: Ayrılıq -->
+            <section class="spa-page" id="page-farewell">
+                <div class="page-content">
+                    <h2 class="page-title farewell-title">Ayrılıq</h2>
+
+                    <section class="farewell-hero animate-item delay-2">
+                        <div class="farewell-kicker">Sonda qalan səssizlik</div>
+                        <h3>Burada baxdığınız hər şey bir hekayə idi. Bir nağıl idi. İndi isə həmin nağılın son səhifəsindəsiniz.</h3>
+                        <p>
+                            Mən düşünürdüm ki, xatirələrimiz hissəsi heç vaxt dayanmayacaq, həmişə nəsə əlavə olunacaq ora.
+                            Elə bilirdim ki, bəzi insanlar yarımçıq qalmaz. Amma bəzən həyat insanın inandığı bütün cümlələri
+                            səssizcə silir və geriyə yalnız baxmağa cəsarət etmədiyin boşluqlar qalır.
+                        </p>
+                    </section>
+
+                    <section class="farewell-dual animate-item delay-3">
+                        <article class="farewell-card farewell-card-memory">
+                            <span class="farewell-card-label">Bir zamanlar</span>
+                            <p>Bu səhifələr sevinc üçün qurulmuşdu. Burada gülüşlər, şəkillər, mahnılar, “sonra yenə baxarıq” deyilən xırda ümidlər vardı.</p>
+                        </article>
+                        <article class="farewell-card farewell-card-loss">
+                            <span class="farewell-card-label">İndi</span>
+                            <p>İndi isə bunların heç biri yoxdur. Hər gözəl şeyin bir sonu olduğu kimi, bizim də sonumuz oldu. Qalan tək şey, yaşanmışlığın içində donub qalan bir ürəkdir.</p>
+                        </article>
+                    </section>
+
+                    <section class="farewell-letter animate-item delay-4">
+                        <div class="farewell-letter-glow"></div>
+                        <div class="farewell-letter-content">
+                            <div class="farewell-letter-top">Son məktub</div>
+                            <p>
+                                Bəlkə də ayrılıq bir anda olmur. Əvvəl sözlər azalır, sonra baxışlar yorulur, sonra
+                                insan içində susmağı öyrənir. Bir gün gəlir və artıq heç nə əvvəlki kimi qalmır.
+                            </p>
+                            <p>
+                                Bu hissədə gördüyün hər sətir, bir vaxtlar “biz” deyə başlayan bütün xəyalların yas yeridir.
+                                Mən yenə də etiraf edirəm: bəzi xatirələr bitmir, sadəcə danışılmayan yerə çəkilir.
+                            </p>
+                            <p>
+                                Səndən sonra anlayırsan ki, bəzi insanlar həyatdan getmir, sadəcə gündəlik nəfəsinin içində
+                                görünməz ağrı kimi qalır. Və insan nə qədər toparlansa da, bəzi adları içində həmişə pıçıltı ilə çəkir.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="farewell-echo animate-item delay-4">
+                        <div class="farewell-echo-label">Səssiz qalan cümlə</div>
+                        <div id="farewell-message-stage" class="farewell-message-stage">
+                            Bəzi sonluqlar qışqırmır, sadəcə içində uzun bir səssizlik qoyub gedir.
+                        </div>
+                    </section>
+
+                    <section class="farewell-fragments animate-item delay-4">
+                        <div class="fragment-chip">Bir vaxtlar hər şey burda yaşayırdı.</div>
+                        <div class="fragment-chip">İndi yalnız xatırlamaq qalır.</div>
+                        <div class="fragment-chip">Sən gedəndən sonra vaxt da əvvəlki kimi axmadı.</div>
+                        <div class="fragment-chip">Bəzən bitən şey sevgi yox, birlikdə qalmaq gücü olur.</div>
+                        <div class="fragment-chip">Ən çox da “kaş” deyə başlayan cümlələr yorur adamı.</div>
+                    </section>
+                </div>
+            </section>
+
+            <!-- Page 3: Zamanımız (Time) -->
+            <section class="spa-page" id="page-time">
+                <div class="page-content">
+                    <h2 class="page-title">Zamanımız</h2>
+                    
+                    <!-- Detailed Time Together -->
+                    <div class="detailed-time-card">
+                        <div class="detailed-header">
+                            <i class="fas fa-clock"></i>
+                            <span>Birlikdə Hər Anımız</span>
+                        </div>
+                        <div class="detailed-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" id="detail-days">0</span>
+                                <span class="stat-label">Gün</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="detail-hours">0</span>
+                                <span class="stat-label">Saat</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="detail-minutes">0</span>
+                                <span class="stat-label">Dəqiqə</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="detail-seconds">0</span>
+                                <span class="stat-label">Saniyə</span>
+                            </div>
+                        </div>
+                        <div class="total-experience">
+                            <div class="exp-item">
+                                <i class="fas fa-heart"></i>
+                                <span id="total-hours-love">0</span>
+                                <label>saat sevgi</label>
+                            </div>
+                            <div class="exp-item">
+                                <i class="fas fa-star"></i>
+                                <span id="total-minutes-love">0</span>
+                                <label>dəqiqə xoşbəxtlik</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Love Switcher -->
+                    <div class="love-switcher">
+                        <span id="changing-love">Səni sevirəm</span> <span style="color: #ff4d6d;">🤍</span>
+                    </div>
+
+                    <!-- Links Section -->
+                    <section class="links-section">
+                        <h3>Nurtacım üçün yazdığım saytlar</h3>
+                        <div class="quote-links">
+                            <a href="nurtacimin-gozel-terefleri.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacımın Gözəl Tərəfləri"</blockquote>
+                                <cite>Bura toxun</cite>
+                            </a>
+                            <a href="nurtacima-seir.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacıma Şeir"</blockquote>
+                                <cite>Bura toxun</cite>
+                            </a>
+                            <a href="nurtac-heart.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtac Heart"</blockquote>
+                                <cite>Bura toxun</cite>
+                            </a>
+                            <a href="nurtacima-mektub.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacıma Məktub"</blockquote>
+                                <cite>Bura toxun</cite>
+                            </a>
+                            <a href="nurtacima-etiraf.html" target="_blank" class="quote-card">
+                                <blockquote>"Nurtacımın Səhvləri"</blockquote>
+                                <cite>Bura toxun</cite>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <!-- Page 4: Qalereya (Gallery) -->
+            <section class="spa-page" id="page-gallery">
+                <div class="page-content">
+                    <h2 class="page-title">Xatirələrimiz 📸</h2>
+                    <div class="gallery-section">
+                        <div id="gallery-stack" class="modern-gallery-grid">
+                            </div>
+                    </div>
+
+                    <section class="music-player animate-item" style="margin-top: 40px;">
+                        <img src="https://i.ytimg.com/vi/5GJWxDKyk3A/hqdefault.jpg" alt="Mahnı şəkli" class="song-image" id="track-art" />
+                        <div class="song-info">
+                            <h2 id="song-title">Billie Eilish - Happier Than Ever 🤍</h2>
+                            <audio id="audio" preload="metadata">
+                                <source src="assets/billie-happier-than-ever.m4a" type="audio/mp4" />
+                            </audio>
+                            <div class="controls">
+                                <button id="playPauseBtn" class="icon-button"><i class="fas fa-play"></i></button>
+                                <button id="muteBtn" class="icon-button"><i class="fas fa-volume-up"></i></button>
+                            </div>
+                            <div class="progress">
+                                <span id="currentTime">00:00</span>
+                                <input type="range" id="seekBar" value="0" min="0" step="1">
+                                <span id="duration">00:00</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <!-- Page 5: Musiqi -->
+            <section class="spa-page" id="page-music">
+                <div class="page-content">
+                    <h2 class="page-title">Musiqilərimiz 🎵</h2>
+                    <div class="yt-music-shell">
+                        <div class="yt-music-header">
+                            <div>
+                                <p class="yt-music-kicker">DUNYAMIZ MUSİC</p>
+                                <h3>Playlist</h3>
+                            </div>
+                            <div class="yt-music-meta">
+                                <span id="music-track-count">0 mahnı</span>
+                            </div>
+                        </div>
+                        <div id="music-playlist" class="yt-playlist">
+                            <div class="music-loading-state">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Musiqilər yüklənir...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <audio id="yt-audio" preload="metadata"></audio>
+                <div id="yt-lyric-stage" class="yt-lyric-stage">
+                    <div id="yt-stage-current" class="yt-stage-current"></div>
+                    <div id="yt-stage-next" class="yt-stage-next"></div>
+                </div>
+                <div id="yt-active-player" class="yt-active-player" style="display:none;">
+                    <div class="yt-player-handle"></div>
+                    <div class="yt-player-top">
+                        <button id="yt-minimize-btn" class="yt-mini-btn" type="button" aria-label="Kiçilt">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="yt-now-playing">
+                            <span id="yt-now-label">İndi səslənir</span>
+                            <strong id="yt-player-title">Mahnı seçin</strong>
+                            <small id="yt-player-artist">Artist</small>
+                        </div>
+                        <button id="yt-lyrics-toggle" class="yt-mini-btn" type="button" aria-label="Sözlər">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                    </div>
+                    <div class="yt-player-body">
+                        <div class="yt-player-art-wrap">
+                            <div class="yt-rotating-disc" id="yt-rotating-disc">
+                                <img id="yt-cover-image" src="assets/music-cover.jpg" alt="Cover">
+                            </div>
+                        </div>
+                        <div class="yt-tabs">
+                            <button class="yt-tab active" data-music-tab="upnext" type="button">Mahnı</button>
+                            <button class="yt-tab" data-music-tab="lyrics" type="button" id="yt-lyrics-tab-btn">Sözlər</button>
+                        </div>
+                        <div class="yt-tab-panel active" id="yt-tab-upnext">
+                            <div class="yt-progress-area">
+                                <input type="range" id="yt-seekbar" min="0" value="0" step="0.1">
+                                <div class="yt-time-row">
+                                    <span id="yt-current-time">00:00</span>
+                                    <span id="yt-duration">00:00</span>
+                                </div>
+                            </div>
+                            <div class="yt-controls-row">
+                                <button id="yt-prev-btn" class="yt-control-btn" type="button">
+                                    <i class="fas fa-backward-step"></i>
+                                </button>
+                                <button id="yt-play-btn" class="yt-play-btn" type="button">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button id="yt-next-btn" class="yt-control-btn" type="button">
+                                    <i class="fas fa-forward-step"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="yt-tab-panel" id="yt-tab-lyrics">
+                            <div id="yt-lyrics-container" class="yt-lyrics-container">
+                                <div class="yt-lyrics-empty">Sözlər əlavə edilməyib.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Page 6: Məktublar (Letters) -->
+            <section class="spa-page" id="page-letters">
+                <div class="page-content">
+                    <h2 class="page-title">Məni hiss etdiyində...</h2>
+                    <div class="envelopes-grid">
+                        <div class="envelope" id="env-miss">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <span>Darıxanda</span>
+                        </div>
+                        <div class="envelope" id="env-sad">
+                            <i class="fas fa-cloud-rain"></i>
+                            <span>Kefin olmayanda</span>
+                        </div>
+                        <div class="envelope" id="env-happy">
+                            <i class="fas fa-sun"></i>
+                            <span>Xoşbəxt olanda</span>
+                        </div>
+                        <div class="envelope" id="env-us">
+                            <i class="fas fa-heart"></i>
+                            <span>Bizim üçün</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Love Note -->
+                    <div class="love-note-card">
+                        <div class="note-icon">💌</div>
+                        <p class="note-text">Hər məktub sənə ürəyimdən yazılıb.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="spa-page" id="page-notes">
+                <div class="page-content">
+                    <h2 class="page-title">Notlarımız</h2>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <button id="open-add-note-btn" class="custom-btn" style="background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 600; box-shadow: 0 5px 15px var(--primary-glow); transition: 0.3s;"><i class="fas fa-plus"></i> Yeni Not Əlavə Et</button>
+                    </div>
+                    <div class="notes-grid" id="notes-container">
+                        <p style="text-align:center; opacity:0.7;">Notlar yüklənir...</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Glassmorphism Navigation Bar -->
+        <nav class="spa-navbar">
+            <button class="nav-item active" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Əsas</span>
+            </button>
+            <button class="nav-item" data-page="time">
+                <i class="fas fa-clock"></i>
+                <span>Zamanımız</span>
+            </button>
+            <button class="nav-item" data-page="gallery">
+                <i class="fas fa-images"></i>
+                <span>Qalereya</span>
+            </button>
+            <button class="nav-item" data-page="letters">
+                <i class="fas fa-envelope"></i>
+                <span>Məktublar</span>
+            </button>
+            <button class="nav-item" data-page="notes">
+                <i class="fas fa-sticky-note"></i>
+                <span>Notlar</span>
+            </button>
+            <button class="nav-item" data-page="music">
+                <i class="fas fa-music"></i>
+                <span>Musiqi</span>
+            </button>
+            <button class="nav-item" data-page="farewell">
+                <i class="fas fa-heart-crack"></i>
+                <span>Ayrılıq</span>
+            </button>
+        </nav>
+    </main>
+
+    <audio id="music-file" src="assets/billie-happier-than-ever.m4a" loop></audio>
+    <script src="hcayar.js"></script>
+    
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span id="close-lb-btn" class="close-lightbox">&times;</span>
+        <div class="lightbox-container">
+            <div class="lightbox-header">
+                <h3>Qalereyamız ✨</h3>
+            </div>
+
+            <div class="lightbox-main">
+                <button id="prev-btn" class="lightbox-nav prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            
+                <div class="image-wrapper">
+                    <img id="lightbox-img" src="" alt="Bizim Xatirəmiz">
+                </div>
+
+                <button id="next-btn" class="lightbox-nav next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="lightbox-footer">
+                <p id="image-date"><i class="far fa-calendar-alt"></i> Tarix alınır...</p>
+                <button id="download-btn" class="download-btn">
+                    <i class="fas fa-download"></i> Şəkli Yüklə
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Letter Modal -->
+    <div id="letter-modal" class="letter-modal">
+        <div class="letter-content">
+            <span class="close-letter" id="close-modal-btn">&times;</span>
+            <h2 id="letter-title">Başlıq</h2>
+            <p id="letter-text">Məktub mətni...</p>
+        </div>
+    </div>
+    <div id="add-note-modal" class="letter-modal">
+        <div class="letter-content" style="max-width: 450px; padding: 30px 25px;">
+            <span class="close-letter" id="close-add-note-btn">&times;</span>
+            <h2 style="font-size: 2.2rem;">Yeni Not</h2>
+            <div style="text-align: left; margin-bottom: 15px;">
+                <label style="font-size: 0.9rem; color: #555; font-weight: 600;">Kim yazır?</label>
+                <select id="note-author" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; outline: none; margin-top: 5px; font-family: 'Poppins', sans-serif;">
+                    <option value="Ziya">Ziya</option>
+                    <option value="Nurtacım">Nurtacım</option>
+                </select>
+            </div>
+            <div style="text-align: left; margin-bottom: 15px;">
+                <label style="font-size: 0.9rem; color: #555; font-weight: 600;">Başlıq (boş qoysan tarix olacaq):</label>
+                <input type="text" id="note-title" placeholder="Məs: Bu gün çox gözəl idi..." style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; outline: none; margin-top: 5px; font-family: 'Poppins', sans-serif;">
+            </div>
+            <div style="text-align: left; margin-bottom: 20px;">
+                <label style="font-size: 0.9rem; color: #555; font-weight: 600;">Məzmun:</label>
+                <textarea id="note-content" rows="4" placeholder="Ürəyindən keçənləri yaz..." style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; outline: none; margin-top: 5px; resize: vertical; font-family: 'Poppins', sans-serif;"></textarea>
+            </div>
+            <button id="submit-note-btn" style="width: 100%; background: var(--primary); color: white; border: none; padding: 12px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 600; box-shadow: 0 5px 15px var(--primary-glow); transition: 0.3s;">Təsdiqlə və Göndər</button>
+        </div>
+    </div>
+
+    <div id="peace-overlay" class="peace-overlay">
+        <div class="peace-overlay-content">
+            <div class="peace-ring peace-ring-1"></div>
+            <div class="peace-ring peace-ring-2"></div>
+            <div class="peace-hearts">🤍 🌹 ✨</div>
+            <div class="peace-glow-text">Bütün səhvlərimi bağışlayarsan?</div>
+            <div class="peace-glow-sub">Nə olursa olsun, ürəyim yenə sənə gəlir. Bir şans da sevgimizə verərsən?</div>
+            <button id="peace-forgive-btn" class="peace-forgive-btn" type="button">Bağışla məni 🤍</button>
+        </div>
+    </div>
+
+    <div id="view-note-modal" class="letter-modal">
+        <div class="letter-content" style="max-width: 500px; text-align: left;">
+            <span class="close-letter" id="close-view-note-btn">&times;</span>
+            <h2 id="view-note-title" style="font-size: 1.8rem; margin-bottom: 5px;">Başlıq</h2>
+            <p id="view-note-author" style="font-style: italic; color: var(--primary); font-size: 0.95rem; font-weight: 600; margin-bottom: 20px;">Ziya tərəfindən</p>
+            <p id="view-note-text" style="white-space: pre-wrap; line-height: 1.6; font-size: 1rem; color: #333; max-height: 50vh; overflow-y: auto;">Məzmun...</p>
+            <div style="border-top: 1px solid #eee; margin-top: 20px; padding-top: 10px; text-align: right;">
+                <span id="view-note-date" style="font-size: 0.8rem; color: #888; background: #f5f5f5; padding: 5px 10px; border-radius: 15px;"><i class="far fa-clock"></i> Tarix</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-lock-modal" class="letter-modal">
+        <div class="letter-content gallery-lock-content" style="max-width: 420px; text-align: center;">
+            <span class="close-letter" id="close-gallery-lock-btn">&times;</span>
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">Qalereya kilidlidir</h2>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 18px;">Qalereyaya daxil olmaq üçün əlavə şifrəni yaz.</p>
+            <input
+                type="password"
+                id="gallery-lock-input"
+                placeholder="Qalereya şifrəsi"
+                style="width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid #ddd; outline: none; font-family: 'Poppins', sans-serif; text-align: center;"
+            >
+            <p id="gallery-lock-error" style="display:none; color:#ff4d6d; font-size:0.9rem; margin-top:10px;">Şifrə yanlışdır.</p>
+            <button
+                id="gallery-lock-submit"
+                type="button"
+                style="width: 100%; margin-top: 16px; background: var(--primary); color: white; border: none; padding: 13px; border-radius: 999px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 600; box-shadow: 0 5px 15px var(--primary-glow);"
+            >
+                Qalereyanı aç
+            </button>
+        </div>
+    </div>
+    
+    <!-- Admin Panel -->
+    <div id="admin-panel" style="display: none;">
+        <div class="admin-content">
+            <span class="close-admin" onclick="document.getElementById('admin-panel').style.display='none'">&times;</span>
+            <h2>Admin Panel ⚙️</h2>
+            <div class="input-group">
+                <label>Görüş Tarixi:</label>
+                <input type="datetime-local" id="admin-date">
+                <label>Görüş Sayı:</label>
+                <input type="number" id="admin-count">
+                <button id="update-config-btn" type="button">Məlumatları Yenilə</button>
+            </div>
+            <hr>
+            <div class="input-group">
+                <label>Qalereyaya Şəkil:</label>
+                <input type="file" id="admin-file" accept="image/*">
+                <button id="upload-image-btn" type="button">Şəkli Yüklə</button>
+            </div>
+            <hr>
+            <div class="input-group">
+                <label>Musiqi faylı (MP3):</label>
+                <input type="file" id="admin-music-file" accept=".mp3,audio/mpeg">
+                <label>Mahnı adı (Track):</label>
+                <input type="text" id="admin-music-title" placeholder="Mahnı adı">
+                <label>Oxuyan (Artist):</label>
+                <input type="text" id="admin-music-artist" placeholder="Artist adı">
+                <label>Sözlərin növü:</label>
+                <select id="admin-lyrics-type" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.5);color:white;outline:none;">
+                    <option value="none">Yoxdur</option>
+                    <option value="plain">Plain Text</option>
+                    <option value="synced">Synced LRC</option>
+                </select>
+                <label>Sözlər:</label>
+                <textarea
+                    id="admin-lyrics-text"
+                    rows="8"
+                    placeholder="[00:12.00] İlk sətir
+            [00:18.20] İkinci sətir"
+                    style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.5);color:white;outline:none;resize:vertical;"
+                ></textarea>
+
+                <button id="upload-music-btn" type="button">Musiqini Yüklə</button>
+            </div>
+            <hr>
+            <div class="input-group">
+                <label>Təsdiq Şifrəsi:</label>
+                <input type="password" id="admin-password" placeholder="Şifrə...">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

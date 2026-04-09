@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nurtacımın Gözəl Tərəfləri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #13070c;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.14);
+      --accent: #ff5b87;
+      --text: #fff7fb;
+      --muted: rgba(255,247,251,0.72);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,91,135,0.2), transparent 30%),
+        linear-gradient(180deg, rgba(10,2,5,0.76), rgba(10,2,5,0.95)),
+        url('assets/hero-main.png') center/cover fixed;
+      overflow-x: hidden;
+    }
+    .stars, .petals { position: fixed; inset: 0; pointer-events: none; }
+    .star {
+      position: absolute;
+      width: 3px; height: 3px; border-radius: 50%;
+      background: white; opacity: .6;
+      animation: twinkle 2.4s ease-in-out infinite;
+    }
+    .petal {
+      position: absolute;
+      top: -40px;
+      width: 16px; height: 24px;
+      border-radius: 12px 12px 12px 2px;
+      background: linear-gradient(180deg, #ff9ab0, #ff537d);
+      animation: petalFall linear infinite;
+      opacity: .75;
+    }
+    @keyframes twinkle { 50% { transform: scale(1.9); opacity: 1; } }
+    @keyframes petalFall { to { transform: translate3d(var(--drift), 110vh, 0) rotate(420deg); opacity: 0; } }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 80px 0 42px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero {
+      text-align: center;
+      padding: 30px 18px 24px;
+    }
+    .hero small {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      margin: 20px 0 14px;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.4rem, 7vw, 6rem);
+      font-weight: 400;
+      text-shadow: 0 0 24px rgba(255,91,135,0.25);
+    }
+    .hero p {
+      margin: 0 auto;
+      max-width: 800px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .spotlight {
+      margin-top: 22px;
+      padding: 30px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.24);
+      text-align: center;
+    }
+    .spotlight h2 {
+      margin: 0 0 12px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      font-weight: 400;
+      color: #ffe0ea;
+    }
+    .grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      min-height: 220px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      transition: transform .35s ease, border-color .35s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,91,135,0.35);
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, rgba(255,91,135,0.18), transparent 65%);
+    }
+    .card .num {
+      font-size: .78rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #ffb7ca;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      color: #fff6fa;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: .96rem;
+    }
+    .final {
+      margin-top: 24px;
+      padding: 30px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,91,135,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+    }
+    .final h2 {
+      margin: 0 0 14px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      font-weight: 400;
+    }
+    .final p {
+      margin: 0 auto;
+      max-width: 840px;
+      color: var(--muted);
+      line-height: 1.95;
+    }
+    @media (max-width: 820px) {
+      .grid { grid-template-columns: 1fr; }
+      .spotlight, .final, .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+  <div class="petals" id="petals"></div>
+  <div class="wrap">
+    <section class="hero">
+      <small>Nurtacımın Gözəl Tərəfləri</small>
+      <h1>Səndə Olan Yaxşılıqlar</h1>
+      <p>
+        Səni sevməyimin səbəbi təkcə gözəl görünməyin deyil. Səndə insanı içindən tutub saxlayan,
+        yorğun günündə belə uzaqlaşmağa qoymayan tərəflər var. Mən bu səhifədə sənin gözəlliyini
+        təkcə üzündə yox, xasiyyətində, ağlında, dayanışında və qəlbinin dərinliyində yazmaq istədim.
+      </p>
+    </section>
+
+    <section class="spotlight">
+      <h2>Nə qədər incitsən də, niyə yenə sən?</h2>
+      <p>
+        Çünki səndə əvəz olunmayan şeylər var. Pis vaxtlarımda yanımda olmağın, özünü aparmağın,
+        savadın, baxışın, qəlbinin təmizliyi, qadın kimi ağırlığın və bir insanın həyatında yer tutmağın
+        adi deyil. Sən insanda həm ehtiras, həm hörmət, həm də bağ hissi yaradan nadir adamlardansan.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="num">01</div>
+        <h3>Pis vaxtlarımda yanımda olmusan</h3>
+        <p>
+          Hər şey yaxşı olanda sevmək asandır. Amma sənin dəyərli tərəfin o idi ki, mən içimdən dağılanda,
+          həvəsim olmayanda, hər şeyi qaranlıq görəndə belə varlığını hiss etdirmisən. Bəzən bir cümlən,
+          bəzən sadəcə orada olmağın mənə çox şey verib. İnsan hər zaman həll istəmir; bəzən sadəcə
+          tək olmadığını bilmək istəyir. Sən bunu bir çox dəfə mənə hiss etdirmisən.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="num">02</div>
+        <h3>Ali savadlı və ağıllı qadınsan</h3>
+        <p>
+          Səndə ən çox xoşuma gələn şeylərdən biri ağlındır. Sənin savadın təkcə diplom kimi görünmür;
+          düşüncə tərzində, söz seçməyində, situasiyanı tutmağında hiss olunur. Mənə görə gözəllik bir müddət
+          baxılır, amma ağıl adama bağlanılır. Səndə o bağlayıcı keyfiyyət var. Səninlə danışanda adam
+          sadəcə birini dinləmir, dərinliyi olan bir insanla üz-üzə gəlir.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="num">03</div>
+        <h3>Varlısan, amma təkcə maddi yox</h3>
+        <p>
+          Mən "varlısan" deyəndə bunu təkcə pul kimi görmürəm. Sən enerjində, baxışında, özünü daşımağında,
+          zövqündə və qadınlıq auranda da zəngin birisən. Səndə kasadlıq hissi yoxdur. Özünü təqdim etməyində,
+          seçdiyin şeylərdə, səssiz dayanışında belə bir doluluq var. Sanki həyatın sənə verdiyi şeyləri
+          içində yığmısan və bu da səni daha xüsusi göstərir.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="num">04</div>
+        <h3>Qəlbin təmizdir</h3>
+        <p>
+          Bəzən səhvlərin olur, amma mən yenə də sənin qəlbinin içində pislikdən çox təmizlik gördüm.
+          Səndə qaranlıqdan çox nur var. Adamın üzünə baxanda bəzi şeylər görünür; sənin baxışında həm
+          zəriflik, həm utancaqlıq, həm də saf bir tərəf var. Məni sənə çəkən şeylərdən biri də bu olub:
+          içində hələ korlanmamış bir saflıq hissi var.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="num">05</div>
+        <h3>Özünə baxmağın və zövqün fərqlidir</h3>
+        <p>
+          Sənin geyimin, fotolardakı duruşun, özünü təqdim etməyin, bir rəngi seçməyin belə başqadır.
+          Səndə zövqsüzlük yoxdur. Hər şeyin içində bir nizam, bir qadın incəliyi və bir yaraşıq var.
+          Təkcə gözəl deyilsən; gözəlliyini necə daşıyacağını bilən birisən. Bu da səni daha da yaddaqalan edir.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="num">06</div>
+        <h3>Mənə təsirin dərindir</h3>
+        <p>
+          Hər insan adamın içində bu qədər iz qoymur. Sən qoymusan. Səninlə olan yaxşı bir gün uzun müddət
+          məni yaşadır, səninlə olan pis bir an da uzun müddət məni susdurur. Bu bir tərəfdən ağırdır,
+          amma bir tərəfdən də göstərir ki, sən mənim üçün sıradan biri olmamısan. Sənin yerin adi deyil.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="num">07</div>
+        <h3>Qadın kimi ağırlığın var</h3>
+        <p>
+          Səndə uşaq kimi şirin tərəf də var, amma eyni zamanda qadın kimi ağırlıq da var. Baxışında, susmağında,
+          addımında və özünü aparmağında bu hiss olunur. Adam bəzən birinə sadəcə xoşuna gəldiyi üçün yox,
+          "bu qadında başqa bir şey var" dediyi üçün bağlanır. Mənim səndə hiss etdiyim də elə budur.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="num">08</div>
+        <h3>Seviləsi bir insansan</h3>
+        <p>
+          Bütün qırğınlıqlara baxmayaraq bir həqiqət dəyişmir: sən seviləsi bir insansan. Səndə insanı
+          özünə çəkən bir istilik, bir baxımlılıq, bir yumşaqlıq, bir canlılıq var. Elə ona görə adam
+          səndən uzaqlaşmaq istəyəndə də tam gedə bilmir. Çünki səndə yenidən qayıtmağa səbəb olan çox şey var.
+        </p>
+      </article>
+    </section>
+
+    <section class="final">
+      <h2>Nurtacım</h2>
+      <p>
+        Mən səndə yalnız səhv görmürəm. Mən səndə yaxşılığı da, dəyəri də, qadınlığı da, ağılı da,
+        mərhəməti də, işığı da görürəm. Bəlkə də məni bu qədər bağlayan şey elə budur:
+        səndə həm qıran tərəf var, həm də adamın yenə də qucaqlamaq istədiyi bir yumşaqlıq.
+        Və düzünü desəm, sənin ən gözəl tərəflərini yazmağa başlasam, bu səhifə yenə bitməz.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    const stars = document.getElementById('stars');
+    const petals = document.getElementById('petals');
+
+    for (let i = 0; i < 45; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 2.4}s`;
+      star.style.animationDuration = `${1.6 + Math.random() * 2.6}s`;
+      stars.appendChild(star);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = `${Math.random() * 100}%`;
+      petal.style.setProperty('--drift', `${-120 + Math.random() * 240}px`);
+      petal.style.animationDuration = `${10 + Math.random() * 8}s`;
+      petal.style.animationDelay = `${Math.random() * 10}s`;
+      petals.appendChild(petal);
+    }
+  </script>
+</body>
+</html>

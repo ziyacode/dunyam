@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nurtacımın Səhvləri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a0b10;
+      --card: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.16);
+      --accent: #ff5f87;
+      --accent-soft: rgba(255, 95, 135, 0.24);
+      --text: #fff7fb;
+      --muted: rgba(255, 247, 251, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255, 95, 135, 0.22), transparent 34%),
+        linear-gradient(180deg, rgba(13, 4, 8, 0.82), rgba(11, 4, 7, 0.96)),
+        url('assets/hero-main.png') center/cover fixed;
+      overflow-x: hidden;
+    }
+
+    .veil {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15, 5, 9, 0.3), rgba(15, 5, 9, 0.78)),
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 18%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .petal {
+      position: fixed;
+      top: -60px;
+      width: 18px;
+      height: 28px;
+      background: linear-gradient(180deg, #ff9ab0, #ff4d6d);
+      border-radius: 14px 14px 14px 2px;
+      opacity: 0.75;
+      pointer-events: none;
+      filter: blur(0.3px);
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.8; }
+      100% { transform: translate3d(var(--x-end), 110vh, 0) rotate(360deg); opacity: 0; }
+    }
+
+    .audio-toggle {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      z-index: 5;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 12px 16px;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 92px 0 48px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 44px 20px 26px;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--muted);
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.3rem, 7vw, 5.8rem);
+      font-weight: 400;
+      color: #fff5f8;
+      text-shadow: 0 0 25px rgba(255, 95, 135, 0.28);
+    }
+
+    .hero-sub {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      color: #fff3f7;
+      letter-spacing: 0.2px;
+    }
+
+    .card-title span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .confession {
+      white-space: pre-line;
+      line-height: 1.9;
+      color: #fff7fb;
+      font-size: 1rem;
+    }
+
+    .meta {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .memory {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      transition: transform 0.35s ease, border-color 0.35s ease;
+    }
+
+    .memory:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 95, 135, 0.34);
+    }
+
+    .memory-date {
+      color: #ffb5c8;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .memory-text {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .rose-line {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .rose-box {
+      min-height: 180px;
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255, 95, 135, 0.12), rgba(255, 255, 255, 0.05));
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rose-box::after {
+      content: "✿";
+      position: absolute;
+      right: 18px;
+      bottom: 8px;
+      font-size: 3.2rem;
+      color: rgba(255, 255, 255, 0.08);
+    }
+
+    .rose-box h3 {
+      margin: 0 0 10px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #ffd7e2;
+    }
+
+    .rose-box p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .final-note {
+      margin-top: 26px;
+      text-align: center;
+      padding: 28px 22px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .final-note h2 {
+      margin: 0 0 12px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      font-weight: 400;
+      color: #ffe6ee;
+    }
+
+    .final-note p {
+      margin: 0 auto;
+      max-width: 760px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rose-line {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="veil"></div>
+  <button class="audio-toggle" id="audioToggle">Səsi Başlat</button>
+  <audio id="pageAudio" loop preload="metadata">
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-kicker">Nurtacımın Səhvləri</div>
+      <h1>Səhvlərinə Baxmayaraq Sənə Olan Sevgim</h1>
+      <p class="hero-sub">
+        DOCX-də qalan xatirələrə baxanda görünür ki, aramızda ən çox iz buraxan şey
+        sənin sözlərin, gizlədilən həqiqətlər və bəzi anlarda məni ikinci plana atmağın olub.
+        Mən bu səhifədə bunları qırıcı yox, aydın şəkildə topladım. Çünki bəzi incikliklər
+        unudulmur, amma yenə də sevgim onların içində sönmür.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-title"><span></span> İçimdə Qalan Söz</div>
+        <div class="confession">25.03.2026 02:59:56
+Ziya tərəfindən
+
+Bu gün yenə aramızda dava oldu və yenə içimdə bir sual qaldı: niyə ən çox sevdiyim insanın ən çox incidən tərəflərini də daşımalı oluram?
+
+Məni ən çox yoran, sənin səhvlərinin təkcə bir dəfəlik olmaması idi. Bəzən sözlərin sərt oldu, bəzən həqiqəti tam demədin, bəzən də mənə dəyər verdiyini desən də davranışların bunu hiss etdirmədi. Mən bütün bunları görməməzlikdən gəlmək istəmədim, çünki qəlbimin ağrıyan yerləri də həqiqətin bir parçasıdır.
+
+Amma bunları yazmağımın səbəbi səni pis göstərmək deyil. Sadəcə içimdə qalanları gözəl, aydın və dürüst şəkildə demək istədim. Çünki mənim sevgim yalnız xoş günlərin sevgisi deyil. Mən qırıldığım günlərdə də səni sevmişəm.
+
+Mən səni hər şeydən çox sevirəm.
+Səni itirmək istəmirəm.
+Amma eyni zamanda istəyirəm ki, bir gün sən də məni incidən şeyləri doğrudan anlayasan.
+Sevgi varsa, səhvlər də qəbul olunar; yetər ki, onlar dəyişmək istəyi ilə qarşılaşsın.</div>
+        <div class="meta">
+          <div class="pill">İnciklik var</div>
+          <div class="pill">Sevgi yenə də var</div>
+          <div class="pill">Aydınlıq istəyi var</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span></span> DOCX-də Qalan Hadisələr</div>
+        <div class="timeline">
+          <div class="memory">
+            <div class="memory-date">10 dekabr, 02:35</div>
+            <div class="memory-text">"Gecən xeyrə, başımı ağrıtma" kimi bir cümlə bəlkə qısa görünür, amma sevən insan üçün gecənin bütün ağırlığını dəyişir. DOCX-də ilk qırıq hiss olunan yerlərdən biri bu idi.</div>
+          </div>
+          <div class="memory">
+            <div class="memory-date">9 fevral, 02:28</div>
+            <div class="memory-text">Qəzəblə deyilən ağır qarğış tipli sözlər keçib getsə də, sevən adamın daxilində iz qoyur. Burada məni sarsıdan təkcə söz yox, o an səndən gəlməsi idi.</div>
+          </div>
+          <div class="memory">
+            <div class="memory-date">21.02.2026, 00:39</div>
+            <div class="memory-text">Rzayla danışarkən mənə yazmamağın, sonra da kimlə danışdığını soruşanda "heç kimlə" deməyin, DOCX-də ən açıq güvən qırılması kimi görünür. Məni incidən əsas yer gizlətmək oldu.</div>
+          </div>
+          <div class="memory">
+            <div class="memory-date">21.02.2026, 00:45 - 00:46</div>
+            <div class="memory-text">Atilla soruşanda da eyni gizlətmənin davam etməsi, eyni anda başqa oğlanlarla yazışma iddiası və sonra könül almağa çalışmağın məndə belə bir hiss buraxıb: mənə dəyər verdiyin üçün yox, heç kimin getməsini istəmədiyin üçün saxlayırsan.</div>
+          </div>
+          <div class="memory">
+            <div class="memory-date">21.02.2026, gecə davamı</div>
+            <div class="memory-text">"Mən yatıram" deyib sonra yatmamağın DOCX-də yalanın ən ağrılı forması kimi keçir. Çünki mən sənə əvvəldən demişdim ki, yalan mənim üçün ən ağır şeydir.</div>
+          </div>
+          <div class="memory">
+            <div class="memory-date">21.02.2026, 14:46</div>
+            <div class="memory-text">Temu söhbətinə girib reaksiya verməyin o qədər də böyük görünməsə də, DOCX-də bunun içində bir məsaj var: bəzən çox kiçik yaxşılıqların oldu, amma böyük qırğınlıqlar onların kölgəsində qaldı.</div>
+          </div>
+          <div class="memory">
+            <div class="memory-date">13 fevral 2026</div>
+            <div class="memory-text">"Etdiyim hər şey yaddan çıxdı", "qoz qoymamısan" kimi hisslər faylda ayrıca görünür. Bu da o deməkdir ki, mənim verdiyim dəyərin görünmədiyi anlar içimdə yığılıb.</div>
+          </div>
+          <div class="memory">
+            <div class="memory-date">Sorğu-sual və yarımçıq həqiqətlər</div>
+            <div class="memory-text">Səni yoxlamaq üçün sual veriləndə söhbəti fırlatmağın, sual-cavab yarımçıq ikən çıxmağın və yenə əskik məlumat verməyin məndə tək bir hiss yaradıb: səhvini bilirdin, amma onunla dürüst üzləşmək istəmədin.</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="rose-line">
+      <div class="rose-box">
+        <h3>Səhvlər Aydındır</h3>
+        <p>Bu səhifədə məqsəd səni ittiham etmək deyil. Sadəcə DOCX-də qalan hadisələri daha səliqəli göstərməkdir: sərt sözlər, gizlətmələr, yalan hissi və mənə lazım olan anda məni tam seçməməyin.</p>
+      </div>
+      <div class="rose-box">
+        <h3>Qırğınlıq Qalır</h3>
+        <p>Bəzi sözlər keçib gedir, amma yaratdığı hiss qalmış olur. Səndən gələn bəzi davranışlar mənim üçün adi inciklik yox, etibarın zədələnməsi kimi qalıb.</p>
+      </div>
+      <div class="rose-box">
+        <h3>Sevgi Yenə də Qalır</h3>
+        <p>Bütün bunlara baxmayaraq, səndən tam soyumadım. Əksinə, bu qədər detallı yazmağımın özü də onu göstərir ki, içimdə hələ də çox dərin bir sevgi yaşayır.</p>
+      </div>
+    </section>
+
+    <section class="final-note">
+      <h2>Nurtacım</h2>
+      <p>
+        Mən bu səhifəni səni alçaltmaq üçün yox, məni incidən şeyləri nəhayət aydın göstərmək üçün yazdım.
+        Sənin səhvlərin oldu, bunu bu DOCX də deyir. Amma mənim sevgim də oldu və o da hələ buradadır.
+        Əgər bir gün bu yazılara baxıb həqiqətən anlasan ki, insanı ən çox qıran şey yalan, gizlətmək və dəyərsiz hiss etdirməkdir,
+        bəlkə onda bu səhifə öz məqsədinə çatmış olar.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    const audio = document.getElementById('pageAudio');
+    const audioToggle = document.getElementById('audioToggle');
+    let isPlaying = false;
+
+    audioToggle.addEventListener('click', async () => {
+      try {
+        if (isPlaying) {
+          audio.pause();
+          audioToggle.textContent = 'Səsi Başlat';
+        } else {
+          await audio.play();
+          audioToggle.textContent = 'Səsi Dayandır';
+        }
+        isPlaying = !isPlaying;
+      } catch (err) {
+        audioToggle.textContent = 'Səs Açılmadı';
+      }
+    });
+
+    const petalCount = 18;
+    for (let i = 0; i < petalCount; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = `${Math.random() * 100}vw`;
+      petal.style.animationDuration = `${9 + Math.random() * 10}s`;
+      petal.style.animationDelay = `${Math.random() * 8}s`;
+      petal.style.setProperty('--x-end', `${-100 + Math.random() * 200}px`);
+      document.body.appendChild(petal);
+    }
+  </script>
+</body>
+</html>
